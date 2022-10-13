@@ -1,1 +1,8 @@
-<p>contact works!</p>
+<div class="card-container">
+    <div class="card" *ngFor="let contact of contacts">
+        <h4> {{contact.name}} {{contact.lastname}} </h4>
+        <h5>Phone: {{contact.phone}}</h5>
+        <p>Email: {{contact.email}}</p>
+        <p>Business: {{contact.business}}</p>
+    </div>
+</div>
