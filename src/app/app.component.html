@@ -15,12 +15,19 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/register">Register</a>
-                    </li>
+                    <ng-container *ngIf="!authService.loggedIn(); else loggedIn">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/register">Register</a>
+                        </li>
+                    </ng-container>
+                    <ng-template #loggedIn>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="authService.logoutUser()">Logout</a>
+                        </li>
+                    </ng-template>
                 </ul>
             </div>
         </div>
