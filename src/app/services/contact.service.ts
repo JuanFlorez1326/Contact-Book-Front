@@ -6,7 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactService {
 
-  private URL_CONTACTS = 'https://contactbook-back-api.herokuapp.com/';
+  private URL_CONTACTS = 'https://contactbook-back-api.herokuapp.com';
 
   constructor(private http: HttpClient) { }
+
+  getContacts ()  {
+    return this.http.get<any>(this.URL_CONTACTS + '/contact');
+  }
 }
