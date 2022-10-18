@@ -15,7 +15,8 @@ export class CreateContactComponent implements OnInit {
     lastname: '',
     business: '',
     phone: '',
-    email: ''
+    email: '',
+    role: ''
   }
 
   constructor(
