@@ -1,25 +1,29 @@
-<div class="card" *ngFor="let contact of contacts">
-    <div class="banner">
-        <div class="avatar">
-            <img class="photo" src="{{contact.photo}}" alt="Photo {{contact.name}}">
+<div class="container">
+    <div class="card" *ngFor="let contact of contacts">
+        <div class="banner">
+            <div class="avatar">
+                <img class="photo" src="{{contact.photo}}" alt="Photo">
+            </div>
         </div>
-    </div>
-
-    <h3>{{contact.name}} {{contact.lastname}}</h3>
-    <a href="mailto:{{contact.email}}">{{contact.email}}</a>
-    <a href="#">Phone: {{contact.phone}}</a>
-    <a href="#">Business: {{contact.business}}</a>
-    <a href="#">Role: {{contact.role}}</a>
-
-    <ul>
-        <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/facebook-f.svg" alt="Facebook"></a>
-        <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/twitter.svg" alt="Twitter"></a>
-        <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/instagram.svg" alt="Instagram"></a>
-        <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/linkedin-in.svg" alt="LinkedIn"></a>
-    </ul>
-
-    <div class="container-btn-card">
-        <button type="button" class="btn btn-danger" (click)="deleteContact(contact._id)">Delete</button>
-        <button type="button" class="btn btn-sucess">Edit</button>
+    
+        <div>
+            <h3>{{contact.name}} {{contact.lastname}}</h3>
+            <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+            <a href="#">Phone: {{contact.phone}}</a>
+            <a href="#">Business: {{contact.business}}</a>
+            <a href="#">Role: {{contact.role}}</a>
+        </div>
+    
+        <ul>
+            <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/facebook-f.svg" alt="Facebook"></a>
+            <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/twitter.svg" alt="Twitter"></a>
+            <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/instagram.svg" alt="Instagram"></a>
+            <a href="#" target="_blank"><img class="social-links" src="../../../assets/social-networks/linkedin-in.svg" alt="LinkedIn"></a>
+        </ul>
+    
+        <div class="container-btn-card">
+            <button type="button" class="btn-card btn-edit">Edit</button>
+            <button type="button" class="btn-card btn-delete" (click)="deleteContact(contact._id)">Delete</button>
+        </div>
     </div>
 </div>

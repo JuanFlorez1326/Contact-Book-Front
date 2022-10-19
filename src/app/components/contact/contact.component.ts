@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
