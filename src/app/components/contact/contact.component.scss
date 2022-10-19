@@ -43,7 +43,7 @@ body{
 .card .banner{
     background-color:#95af8d;
 }
-.avatar{
+.avatar .photo{
 	height: 100px;
 	width: 100px;
 	margin: auto;
@@ -52,7 +52,7 @@ body{
 	background-color: #F1F1F1;
 	border-radius: 100%;
 }
-.card .avatar{
+.avatar .photo{
     background-image: url("https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png");
 }
 
@@ -88,14 +88,22 @@ ul a{
     display: inline;
     margin-right: 10px;
 }
-img {
+.social-links {
 	width: 20px;
 	height:20px;
 }
-img:hover{
+.social-links:hover{
     transform: scale(1.5);
 }
 .btn-sucess {
     color : #fff;
     background-color:rgb(44, 143, 44);
+}
+
+.container-btn-card {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width:40%;
+	justify-content:center;
+	align-items:center;
 }
