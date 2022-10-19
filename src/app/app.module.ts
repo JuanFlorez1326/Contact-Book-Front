@@ -12,6 +12,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateContactComponent } from './components/create-contact/create-contact.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,9 @@ import { CreateContactComponent } from './components/create-contact/create-conta
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
+    },
+    {
+      provide: LocationStrategy, useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent]
