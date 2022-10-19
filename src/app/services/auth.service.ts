@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,20 @@ export class AuthService {
   }
 
   logoutUser() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/home']);
+
+    Swal.fire({
+      title: 'Do you want to close the session?',
+      showDenyButton: true,
+      confirmButtonText: 'Accept',
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('token');
+        this.router.navigate(['/home']);
+      } else if (result.isDenied) {
+        Swal.fire('The current session was not closed')
+      }
+    })
   }
 
   getToken() {
