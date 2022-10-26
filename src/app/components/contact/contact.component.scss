@@ -23,7 +23,7 @@ body{
 .card{
 	width: 250px; 
 	overflow: hidden;
-	background-color: #FFFFFF;
+	background-color: #f8f9fa;
 	border-radius: 15px;
 	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 	text-align: center;
@@ -33,7 +33,7 @@ body{
 }
 
 .card:hover{
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 .banner{
 	height: 100px;
@@ -82,11 +82,11 @@ a {
     display: block;
     padding: 5px 0px;
     font-size: 14px;
-    color: #9E9E9E;
+    color: #212121;
     text-decoration: none;
 }
 a:hover{
-    background-color: #FAFAFA;
+    background-color: #8a8f94;
     color: inherit;
 }
 ul {
