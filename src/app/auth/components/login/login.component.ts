@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user = {
     email: '',
@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   login() {
     this.authService.loginUser(this.user)
@@ -36,7 +33,7 @@ export class LoginComponent implements OnInit {
         })
         console.log(res);
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/contact']);
+        this.router.navigate(['/contacts/contact']);
       },
       err => {
         Swal.fire({

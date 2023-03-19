@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { environment as api } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private URL_REGISTER = 'https://contactbook-back-api.herokuapp.com';
+  private URL_REGISTER = api.baseUrl;
 
   constructor(
     private http: HttpClient,

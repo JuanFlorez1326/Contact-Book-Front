@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment as api } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  private URL_CONTACTS = 'https://contactbook-back-api.herokuapp.com';
+  private URL_CONTACTS = api.baseUrl;
 
   constructor(private http: HttpClient) { }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-contact.component.html',
   styleUrls: ['./create-contact.component.scss']
 })
-export class CreateContactComponent implements OnInit {
+export class CreateContactComponent {
 
   contact = {
     _id: '',
@@ -24,15 +24,12 @@ export class CreateContactComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-  }
-
   createContact() {
     this.contactService.createContact(this.contact)
     .subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/contact']);
+        this.router.navigate(['/contacts/contact']);
       },
       err => {
         console.log(err)

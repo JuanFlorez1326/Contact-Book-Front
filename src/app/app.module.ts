@@ -3,32 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './components/register/register.component';
-import { AuthGuard } from './auth.guard';
-import { HomeComponent } from './components/home/home.component';
-import { TokenInterceptorService } from './services/token-interceptor.service';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CreateContactComponent } from './components/create-contact/create-contact.component';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { TokenInterceptorService } from './auth/services/token-interceptor.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    routingComponents,
-    RegisterComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    CreateContactComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    SharedModule,
+    ContactModule
   ],
   providers: [
     AuthGuard,
@@ -38,10 +33,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
       multi: true
     },
     {
-      provide: LocationStrategy, useClass: HashLocationStrategy
+      provide: LocationStrategy, 
+      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}

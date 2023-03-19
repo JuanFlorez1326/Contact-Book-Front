@@ -20,7 +20,6 @@ export class ContactComponent implements OnInit {
     this.contactService.getContacts()
     .subscribe(
       res => {
-        console.log(res);
         this.contacts = res;
       },
       err => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   user = {
     name: '',
@@ -19,16 +19,13 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-    ) { }
+  ) { }
 
-  ngOnInit(): void {
-  }
 
   register() {
     this.authService.registerUser(this.user)
     .subscribe(
       res => {
-        console.log(res);
         this.router.navigate(['/contact']);
       },
       err => {

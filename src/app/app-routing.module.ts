@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { HomeComponent } from './components/home/home.component';
-import { CreateContactComponent } from './components/create-contact/create-contact.component';
-import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './shared/home/home.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   { 
@@ -15,26 +11,21 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'home',
     component: HomeComponent
   },
   {
-    path: 'register',
-    component: RegisterComponent
+    path:'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
   },
   {
-    path: 'contact',
-    component: ContactComponent,
+    path: 'contacts',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactModule ),
     canActivate: [AuthGuard]
   },
   {
-    path: 'contact/add',
-    component: CreateContactComponent,
-    canActivate: [AuthGuard]
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 
@@ -43,5 +34,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, ContactComponent]
+export class AppRoutingModule {}
